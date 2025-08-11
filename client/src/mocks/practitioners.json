@@ -1,0 +1,20 @@
+[
+  {
+    "id": 59,
+    "firstName": "Paolo",
+    "lastName": "Kub",
+    "speciality": "Médecin Généraliste"
+  },
+  {
+    "id": 60,
+    "firstName": "Daija",
+    "lastName": "Christiansen",
+    "speciality": "Kinésithérapeute"
+  },
+  {
+    "id": 61,
+    "firstName": "Jacquelyn",
+    "lastName": "Upton",
+    "speciality": "Chirurgien"
+  }
+]
