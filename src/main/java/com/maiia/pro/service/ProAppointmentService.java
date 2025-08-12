@@ -4,6 +4,7 @@ import com.maiia.pro.entity.Appointment;
 import com.maiia.pro.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,5 +23,10 @@ public class ProAppointmentService {
 
     public List<Appointment> findByPractitionerId(Integer practitionerId) {
         return appointmentRepository.findByPractitionerId(practitionerId);
+    }
+
+    @Transactional
+    public Appointment create(Appointment appointment) {
+        return appointmentRepository.save(appointment);
     }
 }
