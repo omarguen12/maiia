@@ -6,6 +6,7 @@ import com.maiia.pro.entity.Appointment;
 import com.maiia.pro.mapper.AppointmentMapper;
 import com.maiia.pro.service.ProAppointmentService;
 import io.swagger.annotations.ApiOperation;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -39,7 +40,7 @@ public class ProAppointmentController {
     @ApiOperation(value = "Create an appointment")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public AppointmentResponse create(@RequestBody AppointmentRequest request) {
+    public AppointmentResponse create(@Valid @RequestBody AppointmentRequest request) {
         Appointment ap = mapper.toEntity(request);
         Appointment created = proAppointmentService.create(ap);
         return mapper.toResponse(created);

@@ -1,11 +1,16 @@
 package com.maiia.pro.dto;
 
 import java.time.LocalDateTime;
+import jakarta.validation.constraints.NotNull;
 
 public class AppointmentRequest {
+    @NotNull
     private Integer practitionerId;
+    @NotNull
     private Integer patientId;
+    @NotNull
     private LocalDateTime startDate;
+    @NotNull
     private LocalDateTime endDate;
 
     public Integer getPractitionerId() {
