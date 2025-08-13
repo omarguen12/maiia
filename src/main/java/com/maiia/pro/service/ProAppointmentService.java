@@ -13,6 +13,9 @@ public class ProAppointmentService {
     @Autowired
     private AppointmentRepository appointmentRepository;
 
+    @Autowired
+    private ProAvailabilityService proAvailabilityService;
+
     public Appointment find(String appointmentId) {
         return appointmentRepository.findById(appointmentId).orElseThrow();
     }
@@ -27,6 +30,8 @@ public class ProAppointmentService {
 
     @Transactional
     public Appointment create(Appointment appointment) {
-        return appointmentRepository.save(appointment);
+        Appointment saved =  appointmentRepository.save(appointment);
+        proAvailabilityService.generateAvailabilities(saved.getPractitionerId());
+        return saved;
     }
 }
